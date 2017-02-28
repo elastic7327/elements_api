@@ -1,0 +1,94 @@
+
+
+
+set nu
+
+sy on                
+set cindent        
+set nobackup     
+set tabstop=4   
+set shiftwidth=4 
+set number   
+set hlsearch
+"set nobomb
+"set nocompatible
+set autoindent
+"set ai
+syntax enable
+colorscheme desert
+
+
+filetype plugin on
+filetype plugin indent on
+
+map <C-g> :!ipython %<CR>
+
+set nocompatible              " required
+filetype off                  " required
+set splitbelow
+set splitright
+
+
+
+
+" Load rope plugin  For Jeji Problem
+let g:pymode_rope = 0
+
+
+set rtp +=~/.vim/bundle/vundle
+call vundle#begin()
+
+	Bundle 'gmarik/vundle'
+   	Bundle 'The-NERD-tree'
+	Bundle 'Tagbar'
+	Bundle 'matchit.zip'
+	Bundle 'Command-T'
+	Bundle 'Valloric/YouCompleteMe'
+	Bundle 'taglist.vim'
+	Bundle 'minibufexpl.vim'
+	Bundle 'amix/vimrc'
+	Bundle 'rkulla/pydiction'
+	Bundle 'jedi-vim'
+	Bundle 'davidhalter/jedi'
+
+
+call vundle#end()  
+
+
+
+
+" This is FOr jedi
+"let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = "<leader>d"
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = ""
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
+
+
+
+"let g:ycm_python_binary_path = '/usr/bin/python2'
+"let g:ycm_complete_in_strings = 1
+"let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+"let g:ycm_auto_trigger = 1
+
+
+
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+nmap <F3> :NERDTreeToggle<CR>
+nmap <F4> :TlistToggle<CR>
+
+
+let Tlist_Use_Right_Window=1
+let Tlist_WinWidth = 15 
+
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+
