@@ -10,6 +10,10 @@ import pandas as pd
 
 
 class CsvTodb(object):
+    """
+    error_status:100 => csvfileformat error
+    error_status:200 => csvfileheader error
+    """
 
     def __init__(self):
         self.is_archived = False
@@ -22,7 +26,7 @@ class CsvTodb(object):
         })
 
     def to_db(self, file_obj):
-        datas = []
+        datas = []  # empty array for ORM bulk_create
         patterns = u"(title)|(description)|(image)"
         try:
             frame = pd.read_csv(file_obj).fillna(value="")
@@ -31,14 +35,14 @@ class CsvTodb(object):
             return (self.get_attr())
 
         hlist = [
-            x for x in frame.columns if re.match(
-                patterns, u"{}".format(x))]
+            col for col in frame.columns if re.match(
+                patterns, u"{}".format(col))]
         filtered_frame = frame[hlist]
-        if len(hlist) != 3:
-            self.error_status = 200
+        if len(hlist) != 3:  # if matched header's length is not 3
+            self.error_status = 200  # make it status to 200
             return (self.get_attr())
 
-        for x in filtered_frame.iterrows():
+        for x in filtered_frame.iterrows():  # iterating PandasDataframe
             print(x[1][0], " " * 10, x[1][1], " " * 10, x[1][2])
             datas.append(
                 Content(
@@ -50,7 +54,7 @@ class CsvTodb(object):
         self.is_archived = True
         return (self.get_attr())
 
-    def bulk_create(self, data):
+    def bulk_create(self, data):  # override bulk_create for exceptional condition
         if(data != []):
             klass = data[0].__class__
             res = klass.objects.bulk_create(data)
