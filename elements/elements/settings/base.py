@@ -45,8 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'rest_framework',
-    'rest_framework_swagger',
+    'rest_framework',         #rest_plugin
+    'rest_framework_swagger', #rest_plugin
+    'storages',               #aws_s3_plugin
     'engine',
 ]
 

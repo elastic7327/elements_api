@@ -16,6 +16,8 @@ def upload_path_handler(instance, filename):
             time.time()), ext=ext)
 
 
+
+
 class Csv(models.Model):
     """
     is_archived  : True  => csv contents has been successfully saved
@@ -37,26 +39,10 @@ class Csv(models.Model):
         managed = True
         db_table = "csvs"
 
-
 class Content(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
     description = models.CharField(max_length=256, null=True, blank=True)
     image = models.CharField(max_length=255, null=False, blank=True)
-
-
-    # get filtered contents by regular expression etc..
-    @classmethod
-    def get_clean_contents(self):
-        pass
-
-    def as_json(self):  # get JSON style data
-        return(
-            {
-                "title": self.title,
-                "description": self.description,
-                "image": self.image,
-            }
-        )
 
     class Meta:
         managed = True
