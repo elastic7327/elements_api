@@ -17,7 +17,7 @@ def upload_path_handler(instance, filename):
 
 class Csv(models.Model):
     user = models.ForeignKey(User)
-    file = models.FileField(null=True, upload_to=upload_path_handler)
+    file = models.FileField(null=True, upload_to='uploaded_by_user/%Y/%m/%d')
     date = models.DateField(null=True)
     modified_at = models.DateField(auto_now=True, null=True)
     uploaded_at = models.DateTimeField(auto_now=True, null=True)
