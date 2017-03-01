@@ -18,17 +18,19 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework_swagger.views import get_swagger_view
+
 
 urlpatterns = [
+    url(r'^$', schema_view),
     url(r'^admin/', admin.site.urls),
     url(r'^engine/', include('engine.urls')),
 ]
+
+schema_view = get_swagger_view(title='Elements RESTful-API')
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
                 url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-
