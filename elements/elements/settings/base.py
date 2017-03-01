@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'rest_framework',
+    'rest_framework_swagger',
     'engine',
 ]
 
@@ -73,8 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'elements.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -120,7 +118,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/uploaded_by_user/'
+STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'collected_statics')
 
 MEDIA_URL = '/media/'
