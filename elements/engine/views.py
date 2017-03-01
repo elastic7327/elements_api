@@ -1,16 +1,17 @@
 from __future__ import absolute_import
 from django.shortcuts import render
-
-# Create your views here.
+from django.http import HttpResponse
 
 
 from rest_framework import generics, status
-from rest_framework.permissions import IsAdminUser
-from rest_framework.decorators import permission_classes
+from rest_framework.decorators import list_route
 from rest_framework.response import Response
 
 from engine.models import Csv, Content
 from engine.serializers import CsvSerializer, ContentSerializer
+
+from engine.csv_to_db import CsvTodb
+
 
 
 class ContentDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -40,6 +41,21 @@ class ContentList(generics.ListCreateAPIView):
 class CsvDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Csv.objects.all()
     serializer_class = CsvSerializer
+
+
+class ExportView(generics.ListAPIView):
+    queryset = Csv.objects.all()
+    serializer_class = CsvSerializer
+
+    def get(self, request, format=None):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
+        #csv = Csv.objects.all()
+        #serializer = CsvSerializer(csv, many=True)
+        obj = CsvTodb()
+        csv = obj.export()
+        print (csv)
+        return Response(obj.export())
 
 
 class CsvList(generics.ListCreateAPIView):
