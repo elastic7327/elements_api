@@ -31,19 +31,22 @@ class CsvSerializer(serializers.ModelSerializer):
         modified_at = validated_data.get('modified_at', None)
         error_status = validated_data.get('error_status', None)
 
-        # call csv_to_db
+        # assign core module instance
         ctd = CsvTodb()
+
+        # call ctd object's to_db method
+        # then throw file argument
         res = getattr(ctd, 'to_db')(file)
-        print (res)
 
         return Csv.objects.create(
             user=user,
             date=date,
             file=file,
             uploaded_at=uploaded_at,
-            is_archived=res["is_archived"],
+            is_archived=res["is_archived"],  # assign CTB module's result
             modified_at=modified_at,
-            error_status=res["error_status"])
+            error_status=res["error_status"]  # assign CTB module's result
+        )
 
 
 class ContentSerializer(serializers.ModelSerializer):
