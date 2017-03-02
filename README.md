@@ -45,10 +45,8 @@ Good luck!
 >    | ——————————————————|--------------|-------------------- |
 >    | ———————————————————————————--------------------------— |
 
-##WHY and How ?
 
-
-##WHY?
+3.how to approach
 >I have focused on managing user's own csv files in any environment by putting them on a server(with RESTful CURD).
 >and focuses on reading and writing the csv file.
 >It looks like it's very similar to the IT support project that I've worked on to help other teams in the past.
@@ -65,7 +63,7 @@ I chose django-restframework and django-rest-swagger.
 >this time No asynchronous use ..
 >If the user uploads large csv file frequently ....I will use rabbitmq & celery, To prevent requests time-out
 
-##HOW?
+3.how to it works
 >Users can upload a csv to the server via a particular url.
 >Once you have uploaded the csv file, you must check the archived and error messages at the csvs table
 >If archived is true, then the corresponding csv file will be generated and saved to the contents table (if there is no problem).
@@ -79,7 +77,7 @@ I chose django-restframework and django-rest-swagger.
 >and Please check /elements/settins/config
 
 
-##After finishing.....
+After finishing.....
 >
 >the approach to the problem is, suppose to be with . . .
 >with the meetings, the project managers, the collaborators and the colleagues of the faculty.
