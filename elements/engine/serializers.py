@@ -48,6 +48,20 @@ class CsvSerializer(serializers.ModelSerializer):
             error_status=res["error_status"]  # assign CTB module's result
         )
 
+    def update(self, instance, validated_data):
+        # assign core module instance
+        ctd = CsvTodb()
+        res = getattr(ctd, 'to_db')(validated_data.get('file', instance))
+        instance.user = validated_data.get('user', instance)
+        instance.date = validated_data.get('date', instance)
+        instance.file = validated_data.get('file', instance)
+        instance.is_archived = res["is_archived"]
+        instance.uploaded_at = validated_data.get('uploaded_at', instance)
+        instance.modified_at = validated_data.get('modified_at', instance)
+        instance.error_status = res["error_status"]
+        instance.save()
+        return instance
+
 
 class ContentSerializer(serializers.ModelSerializer):
 
