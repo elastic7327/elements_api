@@ -26,7 +26,7 @@ You can build everything yourself or use existing library components. This is ma
 Try to make error handling as graceful as possible. The user should not be bugged with error messages.
 Good luck!
 
-
+##
 
 
 
@@ -39,7 +39,7 @@ base.txt    >>   development.txt  >>   prodution.txt
 
 
 
-2 .django module setting can be divided into three parts 
+2 .django module setting can be divided into four parts 
 
 base.py    >>   development.py   >>  testing.py >> prodution.py
     |—————————|
@@ -74,6 +74,7 @@ If the user uploads large csv file frequently ....I will use rabbitmq & celery, 
 
 
 [4] How to use ?
+'''sh
 Users can upload a csv to the server via a particular url.
 Once you have uploaded the csv file, you must check the archived and error messages at the csvs table
 
@@ -89,6 +90,7 @@ when storing the contents objects in an RDB , the performance was raised using b
 
 Through uwsgi and nginx, we will create a large number of cluster and allow them to serve in AWS 
 and Please check /elements/settins/config 
+'''
 
 
 
