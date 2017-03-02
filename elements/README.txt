@@ -57,7 +57,7 @@ I chose django-restframework and django-rest-swagger.
 >this time No asynchronous use ..
 >If the user uploads large csv file frequently ....I will use rabbitmq & celery, To prevent requests time-out
 
-3.how to it works
+4.how it works
 >Users can upload a csv to the server via a particular url.
 >Once you have uploaded the csv file, you must check the archived and error messages at the csvs table
 >If archived is true, then the corresponding csv file will be generated and saved to the contents table (if there is no problem).
