@@ -15,9 +15,26 @@ ____  _____ ____ _____ __       _      _    ____ ___
 
 
 
+1.Requirements can be divided into three parts
+
+>base.txt  =>  development.txt  >>  prodution.txt
+>    |—————————|
+>    | ——————————————————|  -   -   -  -  - - |
+>    | ———————————————————————----------————— |
 
 
 
+
+
+
+
+2 .django module setting can be divided into four parts
+
+>base.py >>   development.py   >> testing.py >> prodution.py
+>    |—————————|http://prodution.py/
+>    | ——————————————————|  -   -     - |
+>    | ——————————————————|--------------|-------------------- |
+>    | ———————————————————————————--------------------------— |
 
 
 
