@@ -31,7 +31,7 @@ ____  _____ ____ _____ __       _      _    ____ ___
 2 .django module setting can be divided into four parts
 
 >base.py >>   development.py   >> testing.py >> prodution.py
->    |—————————|http://prodution.py/
+>    |—————————|
 >    | ——————————————————|  -   -     - |
 >    | ——————————————————|--------------|-------------------- |
 >    | ———————————————————————————--------------------------— |
