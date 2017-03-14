@@ -58,12 +58,11 @@ class CsvTodb(object):
         query_set = Content.objects.all()
         frame = {"title": [], "image": [], "description": []}
         for x in query_set:
-                frame["title"].append(x.title)
-                frame["image"].append(x.image)
-                frame["description"].append(x.description)
+            frame["title"].append(x.title)
+            frame["image"].append(x.image)
+            frame["description"].append(x.description)
         df = pd.DataFrame.from_dict(frame)
-        return df
-        #return (df.to_csv("output.csv"))
+        return (df.to_csv("output.csv"))
 
     def bulk_create(self, data):  # override bulk_create for exceptional condition
         if(data != []):
