@@ -74,7 +74,8 @@ I chose django-restframework and django-rest-swagger.
 >when storing the contents objects in an RDB , the performance was raised using bulk_insert(please check csv__to_db.py
 
 >Through uwsgi and nginx, we will create a large number of cluster and allow them to serve in AWS
->and Please check /elements/settins/config
+>also nginx can solve a image caching issues 
+>and Please check /elements/settings/config
 
 
 After finishing.....
