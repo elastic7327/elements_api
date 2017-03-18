@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from __future__ import absolute_import
 import re
@@ -64,10 +64,6 @@ class CsvTodb(object):
         df = pd.DataFrame.from_dict(frame)
         return (df.to_csv("output.csv"))
 
-    def bulk_create(self, data):  # override bulk_create for exceptional condition
-        if(data != []):
-            klass = data[0].__class__
-            res = klass.objects.bulk_create(data)
 
 if __name__ == "__main__":
     pass

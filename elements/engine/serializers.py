@@ -1,5 +1,6 @@
 #!/usr/bin/python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+
 from __future__ import absolute_import
 
 from rest_framework import serializers
@@ -26,10 +27,8 @@ class CsvSerializer(serializers.ModelSerializer):
         user = validated_data.get('user', None)
         date = validated_data.get('date', None)
         file = validated_data.get('file', None)
-        is_archived = validated_data.get('is_archived', None)
         uploaded_at = validated_data.get('uploaded_at', None)
         modified_at = validated_data.get('modified_at', None)
-        error_status = validated_data.get('error_status', None)
 
         # assign core module instance
         ctd = CsvTodb()
