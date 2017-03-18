@@ -1,19 +1,11 @@
 from __future__ import absolute_import
 
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.utils.encoding import smart_str
-from django.core.files import File
-
 
 from rest_framework import generics, status
-from rest_framework.decorators import list_route
-from rest_framework.response import Response
+from rest_framework.response import Response, HttpResponse
 
 from engine.models import Csv, Content
 from engine.serializers import CsvSerializer, ContentSerializer
-
-from engine.csv_to_db import CsvTodb
 
 
 class ContentDetail(generics.RetrieveUpdateDestroyAPIView):
