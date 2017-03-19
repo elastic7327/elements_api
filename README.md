@@ -92,3 +92,13 @@ After finishing.....
 >
 >-Daniel Kim-
 >
+
+
+
+
+
+
+### FeedBack 
+> No regulary PEP8
+> No Unit-TEST 
+> 
